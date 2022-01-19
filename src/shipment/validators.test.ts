@@ -1,14 +1,14 @@
 import methods  from '../../fixtures/methods.json';
-import { ZipCodeRangeAreaValidator } from "./validators";
+import { ZipCodeRangeAreaValidator, MinimumPriceValidator } from "./validators";
 
 const shipmentInfo = {
   price: 4000,
   zipCode: '19999998',
 }
+const method = methods[0];
 
 describe('ZipCodeRangeAreaValidator', () => {
   const zipCodeRangeAreaValidator = new ZipCodeRangeAreaValidator();
-  const method = methods[0];
   
   describe('should pass the validation', () => {
     it('zip code: 19999999', () => {
@@ -91,3 +91,11 @@ describe('ZipCodeRangeAreaValidator', () => {
     });
   });
 });
+
+describe('MinimumPriceValidator', () => {
+  const minimumPriceValidator = new MinimumPriceValidator();
+
+  describe('should pass the validation', () => {
+    it.todo('price: 0')
+  });
+})
