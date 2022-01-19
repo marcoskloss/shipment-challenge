@@ -22,14 +22,72 @@ describe('ZipCodeRangeAreaValidator', () => {
       expect(error).toBeFalsy();
     });
 
-    it.todo('zip code: 19999998');
-    it.todo('zip code: 01000000');
-    it.todo('zip code: 01000001');
+    it('zip code: 19999998', () => {
+      const params = { 
+        shipmentInfo: { ...shipmentInfo, zipCode: '19999998' }, 
+        shipmentMethod: method
+      }
+      
+      const [error] = zipCodeRangeAreaValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
+    
+    it('zip code: 01000000', () => {
+      const params = { 
+        shipmentInfo: { ...shipmentInfo, zipCode: '01000000' }, 
+        shipmentMethod: method
+      }
+      
+      const [error] = zipCodeRangeAreaValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
+
+    it('zip code: 01000001', () => {
+      const params = { 
+        shipmentInfo: { ...shipmentInfo, zipCode: '01000001' }, 
+        shipmentMethod: method
+      }
+      
+      const [error] = zipCodeRangeAreaValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
   });
 
   describe('should not pass the validation', () => {
-    it.todo('zip code: 20000000');
-    it.todo('zip code: 00000000')
-    it.todo('zip code: 00999999');
+    it('zip code: 20000000', () => {
+      const params = { 
+        shipmentInfo: { ...shipmentInfo, zipCode: '20000000' }, 
+        shipmentMethod: method
+      }
+      
+      const [error] = zipCodeRangeAreaValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
+
+    it('zip code: 00000000', () => {
+      const params = { 
+        shipmentInfo: { ...shipmentInfo, zipCode: '00000000' }, 
+        shipmentMethod: method
+      }
+      
+      const [error] = zipCodeRangeAreaValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
+
+    it('zip code: 00999999', () => {
+      const params = { 
+        shipmentInfo: { ...shipmentInfo, zipCode: '00999999' }, 
+        shipmentMethod: method
+      }
+      
+      const [error] = zipCodeRangeAreaValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
   });
 });
