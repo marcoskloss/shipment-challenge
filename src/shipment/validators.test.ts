@@ -17,7 +17,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -28,7 +28,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -39,7 +39,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -50,7 +50,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -63,7 +63,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -74,7 +74,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -85,7 +85,7 @@ describe('ZipCodeRangeAreaValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = zipCodeRangeAreaValidator.exec(params);
+      const { error } = zipCodeRangeAreaValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -102,7 +102,7 @@ describe('MinimumPriceValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = minimumPriceValidator.exec(params);
+      const { error } = minimumPriceValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -113,7 +113,7 @@ describe('MinimumPriceValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = minimumPriceValidator.exec(params);
+      const { error } = minimumPriceValidator.exec(params);
 
       expect(error).toBeFalsy();
     });
@@ -126,7 +126,7 @@ describe('MinimumPriceValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = minimumPriceValidator.exec(params);
+      const { error } = minimumPriceValidator.exec(params);
 
       expect(error).toBeTruthy();
     });
@@ -137,7 +137,7 @@ describe('MinimumPriceValidator', () => {
         shipmentMethod: method
       }
       
-      const [error] = minimumPriceValidator.exec(params);
+      const { error } = minimumPriceValidator.exec(params);
 
       expect(error).toBeTruthy();
     });

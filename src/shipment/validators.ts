@@ -14,10 +14,10 @@ class ZipCodeRangeAreaValidator implements Validator {
       .range_postcode_valid
       .map(Number);
 
-    return [
-      zipCode <= startRange && zipCode >= endRange,
-      IncompatibilitiesMessages.zipCodeOutsideDeliveryArea
-    ]
+    return {
+      error: zipCode <= startRange && zipCode >= endRange,
+      message: IncompatibilitiesMessages.zipCodeOutsideDeliveryArea
+    }
   }
 }
 
@@ -25,10 +25,10 @@ class MinimumPriceValidator implements Validator {
   public exec({ shipmentMethod, shipmentInfo }: ValidatorInput): ValidatorOutput {
     console.log({ shipmentMethod })
     
-    return [
-      shipmentInfo.price < shipmentMethod.min_price_in_cents,
-      IncompatibilitiesMessages.minimumPriceNotReached
-    ]
+    return {
+      error: shipmentInfo.price < shipmentMethod.min_price_in_cents,
+      message: IncompatibilitiesMessages.minimumPriceNotReached
+    }
   }
 }
 

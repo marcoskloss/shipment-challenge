@@ -15,7 +15,7 @@ export type ValidatorInput = {
     shipmentInfo: ShipmentInfo;
 }
 
-export type ValidatorOutput = [error: boolean, message: string];
+export type ValidatorOutput = { error: boolean, message: string };
 
 export interface Validator {
     exec(data: ValidatorInput): ValidatorOutput;
