@@ -32,7 +32,20 @@ class MinimumPriceValidator implements Validator {
   }
 }
 
+class IncompatibleMethodValidator implements Validator {
+  public exec({ shipmentMethod }: ValidatorInput): ValidatorOutput {
+    console.log(shipmentMethod)
+    
+    return {
+      error: !shipmentMethod.active, 
+      message: IncompatibilitiesMessages.disabledShipping
+    }
+  }
+}
+
+
 export {
   ZipCodeRangeAreaValidator,
-  MinimumPriceValidator
+  MinimumPriceValidator,
+  IncompatibleMethodValidator
 }

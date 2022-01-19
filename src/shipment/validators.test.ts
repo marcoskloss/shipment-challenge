@@ -1,5 +1,9 @@
 import methods  from '../../fixtures/methods.json';
-import { ZipCodeRangeAreaValidator, MinimumPriceValidator } from "./validators";
+import { 
+  ZipCodeRangeAreaValidator, 
+  MinimumPriceValidator, 
+  IncompatibleMethodValidator 
+} from "./validators";
 
 const shipmentInfo = {
   price: 4000,
@@ -138,6 +142,37 @@ describe('MinimumPriceValidator', () => {
       }
       
       const { error } = minimumPriceValidator.exec(params);
+
+      expect(error).toBeTruthy();
+    });
+  });
+})
+
+describe('IncompatibleMethodValidator', () => {
+  const incompatibleMethodValidator = new IncompatibleMethodValidator();
+
+  describe('should pass the validation', () => {
+    it('active: true', () => {
+      const params = { 
+        shipmentInfo, 
+        shipmentMethod: { ...method, active: true }
+      }
+      
+      const { error } = incompatibleMethodValidator.exec(params);
+
+      expect(error).toBeFalsy();
+    });
+  });
+
+  describe('should not pass the validation', () => {
+    it('active: false', () => {
+      const params = { 
+        shipmentInfo, 
+        shipmentMethod: { ...method, active: false }
+      }
+
+      
+      const { error } = incompatibleMethodValidator.exec(params);
 
       expect(error).toBeTruthy();
     });
