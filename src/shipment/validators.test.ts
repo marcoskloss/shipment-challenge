@@ -96,6 +96,12 @@ describe('MinimumPriceValidator', () => {
   const minimumPriceValidator = new MinimumPriceValidator();
 
   describe('should pass the validation', () => {
-    it.todo('price: 0')
+    it.todo('price: 1');
+    it.todo('price: 2');
+  });
+
+  describe('should not pass the validation', () => {
+    it.todo('price: 0');
+    it.todo('price: -1');
   });
 })
