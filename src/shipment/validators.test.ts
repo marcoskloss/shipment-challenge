@@ -15,9 +15,12 @@ describe('ZipCodeRangeAreaValidator', () => {
   const zipCodeRangeAreaValidator = new ZipCodeRangeAreaValidator();
   
   describe('should pass the validation', () => {
-    it('zip code: 19999999', () => {
+    it('zip code lower than max', () => {
+      const zipCode = String(Number(method.range_postcode_valid[1]) - 1);
+
+      
       const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '19999999' }, 
+        shipmentInfo: { ...shipmentInfo, zipCode }, 
         shipmentMethod: method
       }
       
@@ -26,9 +29,12 @@ describe('ZipCodeRangeAreaValidator', () => {
       expect(error).toBeFalsy();
     });
 
-    it('zip code: 19999998', () => {
+    it('zip code equals max', () => {
+      const zipCode = String(Number(method.range_postcode_valid[1]));
+
+      
       const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '19999998' }, 
+        shipmentInfo: { ...shipmentInfo, zipCode }, 
         shipmentMethod: method
       }
       
@@ -37,9 +43,11 @@ describe('ZipCodeRangeAreaValidator', () => {
       expect(error).toBeFalsy();
     });
     
-    it('zip code: 01000000', () => {
+    it('zip code greater than min', () => {
+      const zipCode = String(Number(method.range_postcode_valid[0]) + 1);
+      
       const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '01000000' }, 
+        shipmentInfo: { ...shipmentInfo, zipCode }, 
         shipmentMethod: method
       }
       
@@ -48,9 +56,11 @@ describe('ZipCodeRangeAreaValidator', () => {
       expect(error).toBeFalsy();
     });
 
-    it('zip code: 01000001', () => {
+    it('zip code equals min', () => {
+      const zipCode = String(Number(method.range_postcode_valid[0]));
+
       const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '01000001' }, 
+        shipmentInfo: { ...shipmentInfo, zipCode }, 
         shipmentMethod: method
       }
       
@@ -61,37 +71,30 @@ describe('ZipCodeRangeAreaValidator', () => {
   });
 
   describe('should not pass the validation', () => {
-    it('zip code: 20000000', () => {
+    it('zip code greater than max', () => {
+      const zipCode = String(Number(method.range_postcode_valid[1]) + 1);
+
       const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '20000000' }, 
+        shipmentInfo: { ...shipmentInfo, zipCode }, 
         shipmentMethod: method
       }
       
       const { error } = zipCodeRangeAreaValidator.exec(params);
 
-      expect(error).toBeFalsy();
+      expect(error).toBeTruthy();
     });
 
-    it('zip code: 00000000', () => {
+    it('zip code lower than min', () => {
+      const zipCode = String(Number(method.range_postcode_valid[0]) - 1);
+      
       const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '00000000' }, 
+        shipmentInfo: { ...shipmentInfo, zipCode }, 
         shipmentMethod: method
       }
       
       const { error } = zipCodeRangeAreaValidator.exec(params);
 
-      expect(error).toBeFalsy();
-    });
-
-    it('zip code: 00999999', () => {
-      const params = { 
-        shipmentInfo: { ...shipmentInfo, zipCode: '00999999' }, 
-        shipmentMethod: method
-      }
-      
-      const { error } = zipCodeRangeAreaValidator.exec(params);
-
-      expect(error).toBeFalsy();
+      expect(error).toBeTruthy();
     });
   });
 });

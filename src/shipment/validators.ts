@@ -15,7 +15,7 @@ class ZipCodeRangeAreaValidator implements Validator {
       .map(Number);
 
     return {
-      error: zipCode <= startRange && zipCode >= endRange,
+      error: zipCode < startRange || zipCode > endRange,
       message: IncompatibilitiesMessages.zipCodeOutsideDeliveryArea
     }
   }
@@ -23,8 +23,6 @@ class ZipCodeRangeAreaValidator implements Validator {
 
 class MinimumPriceValidator implements Validator {
   public exec({ shipmentMethod, shipmentInfo }: ValidatorInput): ValidatorOutput {
-    console.log({ shipmentMethod })
-    
     return {
       error: shipmentInfo.price < shipmentMethod.min_price_in_cents,
       message: IncompatibilitiesMessages.minimumPriceNotReached
@@ -34,8 +32,6 @@ class MinimumPriceValidator implements Validator {
 
 class IncompatibleMethodValidator implements Validator {
   public exec({ shipmentMethod }: ValidatorInput): ValidatorOutput {
-    console.log(shipmentMethod)
-    
     return {
       error: !shipmentMethod.active, 
       message: IncompatibilitiesMessages.disabledShipping
