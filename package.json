@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node ./dist/shipment.js",
-    "test": "npx jest"
+    "test:unit": "npx jest",
+    "test:functional": "npm run build && npx jest --projects ./test",
+    "test": "npm t && npm run test:functional"
   },
   "keywords": [],
   "author": "Marcos Kloss",
