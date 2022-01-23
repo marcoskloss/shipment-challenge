@@ -7,7 +7,7 @@ type DataParserOutput = {
 
 export function dataParser(data: string): DataParserOutput {
   const lines = data
-    .split('\r\n')
+    .split('\n')
     .filter(Boolean) // get only truthy values
     .map(line => line.trim());
 
