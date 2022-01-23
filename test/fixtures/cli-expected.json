@@ -1,0 +1,62 @@
+[
+  {
+    "incompatibilities":[
+      "Zip code outside the delivery area for this method"
+    ],
+    "method":"Entrega normal SP",
+    "valid":false
+  },
+  {
+    "incompatibilities":[
+      "Zip code outside the delivery area for this method",
+      "Minimum price not reached for this method"
+    ],
+    "method":"Entrega normal SP (frete grátis)",
+    "valid":false
+  },
+  {
+    "incompatibilities":[
+      "Zip code outside the delivery area for this method",
+      "Minimum price not reached for this method"
+    ],
+    "method":"Entrega normal RJ",
+    "valid":false
+  },
+  {
+    "incompatibilities":[
+      "Zip code outside the delivery area for this method",
+      "Minimum price not reached for this method"
+    ],
+    "method":"Entrega normal RJ (expressa)",
+    "valid":false
+  },
+  {
+    "incompatibilities":[
+      "Minimum price not reached for this method"
+    ],
+    "method":"Entrega normal BR",
+    "valid":false
+  },
+  {
+    "incompatibilities":[
+      "Zip code outside the delivery area for this method",
+      "Minimum price not reached for this method"
+    ],
+    "method":"Entrega normal agendada SP",
+    "valid":false
+  },
+  {
+    "incompatibilities":[
+      
+    ],
+    "method":"Retirada em loja",
+    "valid":true
+  },
+  {
+    "incompatibilities":[
+      "Disabled shipping"
+    ],
+    "method":"Retirada em loja agendada",
+    "valid":false
+  }
+]
